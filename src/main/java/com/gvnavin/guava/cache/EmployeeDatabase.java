@@ -9,9 +9,15 @@ import java.util.List;
  */
 public class EmployeeDatabase {
 
+    private static EmployeeDatabase INSTANCE = new EmployeeDatabase();
+
+    public static EmployeeDatabase get() {
+        return INSTANCE;
+    }
+
     private final HashMap<String, Employee> database;
 
-    public EmployeeDatabase() {
+    private EmployeeDatabase() {
         Employee e1 = new Employee("Mahesh", "Finance", "100");
         Employee e101 = new Employee("Mahesh101", "Finance", "101");
         Employee e102 = new Employee("Mahesh102", "Finance", "102");

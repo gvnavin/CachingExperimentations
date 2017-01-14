@@ -7,15 +7,9 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by gnavin on 1/14/17.
  */
-public class Main {
-    public static void main(String[] args) {
-        getTest();
-        getAllTest();
-    }
+public class Util {
 
-    private static void getAllTest() {
-        EmployeeCache employeeCache = new EmployeeCache();
-
+    public static void getAllTest(final EmployeeCache employeeCache) {
         try {
             //on first invocation, cache will be populated with corresponding
             //employee record
@@ -33,16 +27,16 @@ public class Main {
         }
     }
 
-
-    private static void getTest() {
-        EmployeeCache employeeCache = new EmployeeCache();
+    public static void getTest(final EmployeeCache employeeCache) {
 
         try {
             //on first invocation, cache will be populated with corresponding
             //employee record
             System.out.println("Invocation #1");
             System.out.println(employeeCache.get("100"));
+            System.out.println();
             System.out.println(employeeCache.get("103"));
+            System.out.println();
             System.out.println(employeeCache.get("110"));
 
             System.out.println("------------------------------");
@@ -50,7 +44,9 @@ public class Main {
             //second invocation, data will be returned from cache
             System.out.println("Invocation #2");
             System.out.println(employeeCache.get("100"));
+            System.out.println();
             System.out.println(employeeCache.get("103"));
+            System.out.println();
             System.out.println(employeeCache.get("110"));
 
 
@@ -59,5 +55,4 @@ public class Main {
             e.printStackTrace();
         }
     }
-
 }
